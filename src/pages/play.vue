@@ -83,7 +83,7 @@
             <mu-icon value="skip_previous"></mu-icon>
           </mu-button>
 
-          <mu-button :ripple="false" class="play-btn" icon v-show="!playing" @click="player.play">
+          <mu-button :ripple="false" class="play-btn" icon v-show="!playing" @click="player.play('yes')">
             <mu-icon value="play_circle_outline"></mu-icon>
           </mu-button>
           <mu-button :ripple="false" class="pause-btn" icon v-show="playing" @click="player.pause">

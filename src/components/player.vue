@@ -267,14 +267,14 @@ export default {
       });
     },
     // 播放
-    play() {
-      if (!this.play_action) {
+    play(no_wait) {
+      let player = this.$refs.player;
+      if (!this.play_action && !no_wait) {
         setTimeout(() => {
           this.play();
         }, 350);
         return;
       }
-      let player = this.$refs.player;
       // this.$nextTick(() => {
       if (player.src !== this.play_info.url) player.src = this.play_info.url;
       if (!this.play_info.url) return;
