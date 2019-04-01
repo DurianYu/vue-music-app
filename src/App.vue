@@ -58,14 +58,8 @@ export default {
   mounted() {
     // 响应式布局
     this.responsiveLayout();
-    window.addEventListener('beforeunload', e => {
-      alert(window.location)
-      window.location.href = window.location.origin;
-
-    })
 
     this.$router.push({name: 'home'});
-
   }
 }
 </script>
