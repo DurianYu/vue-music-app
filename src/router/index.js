@@ -18,14 +18,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      // name: 'index', // 不能使用名字
+      name: 'index',
       component: index,
       meta: {
         keepAlive: true
       },
       props: true,
       children: [{
-        path: '', // 默认首页
+        path: 'home', // 默认首页
         name: 'home',
         component: home,
         meta: {

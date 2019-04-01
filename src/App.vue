@@ -64,8 +64,7 @@ export default {
 
     })
 
-    // window.onbeforeunload = function(event) {
-    // };
+    this.$router.push({name: 'home'});
 
   }
 }
