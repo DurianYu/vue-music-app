@@ -72,6 +72,8 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 100%;
+    margin: 0 auto;
+    max-width: 520px;
 }
 
 #app {
@@ -79,6 +81,8 @@ html {
     -webkit-overflow-scrolling: touch;
     > div:nth-of-type(1) {
         height: 100%;
+        width: 100%;
+        position: relative;
     }
 }
 </style>

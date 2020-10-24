@@ -5,7 +5,7 @@
     <mu-flex class="rcmd-song-sheet-box" justify-content="center">
       <mu-container style="margin: 2rem 0 3.5rem 0;">
             <mu-carousel transition="fade" hide-controls class="rcmd-song-sheet-carousel">
-              <mu-carousel-item  v-for="v of banners" :key="v.coverImgUrl">
+              <mu-carousel-item  v-for="v,i of banners" :key="i">
                   <mu-row class="h-100" @click="toSongListPage(v.id)">
                     <mu-col class="h-100 banner-box">
                       <img class="h-100 w-100" :src="v.coverImgUrl">
@@ -102,7 +102,7 @@ export default {
   name: 'home',
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      document.querySelector('.page-home').scrollTop = vm.scrollTop;
+      if (document.querySelector('.page-home')) document.querySelector('.page-home').scrollTop = vm.scrollTop;
     })
   },
   beforeRouteLeave(to, from, next) {
