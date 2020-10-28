@@ -11,7 +11,8 @@ export default new Vuex.Store({
     sayHello
   },
   state: {
-    NODE_DOMAIN: '127.0.0.1:3000', // node服务器的地址
+    NODE_DOMAIN: `${window.location.origin}:3000`, // node服务器的地址
+    // NODE_DOMAIN: `http://www.durian-fish.com:3000`, // node服务器的地址
     /* 播放器 */
     setLoopMode_watch: 1, // 用于监听到 自动播放 功能运行了
     auto_play_watch: 1, // 用于监听到 自动播放 功能运行了
