@@ -99,7 +99,10 @@ export default {
       if (vm.cur_list_id == vm.g_page_home.id) return;
       vm.cur_list_id = vm.g_page_home.id;
       vm.getSongList(vm.g_page_home.id || 2190625773).then(res => {
-        vm.local_song_list = res.playlist.tracks;
+      let ids = res.playlist.trackIds.map(v => v.id).join(',');
+      vm.getAllSongList(ids).then(res => {
+        vm.local_song_list = res.songs;
+      });
       }).catch(res => {
         vm.$alert(res, '');
       });
@@ -168,6 +171,21 @@ export default {
       return new Promise((resolve, reject) => {
         axios({
           url: `${this.NODE_DOMAIN}/playlist/detail?id=${id}`
+        }).then(res => {
+          res = res.data;
+          if (res.code === 200) {
+            resolve(res);
+          } else {
+            reject(res);
+          }
+        }).catch(error => console.log(error));
+      });
+    },
+    // 获取所有歌单
+    getAllSongList(ids) {
+      return new Promise((resolve, reject) => {
+        axios({
+          url: `${this.NODE_DOMAIN}/song/detail?ids=${ids}`
         }).then(res => {
           res = res.data;
           if (res.code === 200) {
